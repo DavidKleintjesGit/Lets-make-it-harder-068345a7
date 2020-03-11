@@ -13,16 +13,16 @@ else {
     $highest_weight = max($weight1, $weight2);
     $difference = ($highest_weight - $lowest_weight);
 }
-	$required_weight = [];
-    foreach ($weights as $weight) {
-        if ($weight <= $difference) {
-			$required_weight[] = $weight;
-			$difference = $difference - $weight;
-		}
-	}
-    if ($difference != 0) {
-		echo "Niet in balans\n";
-	} 
-    else {
-		echo implode(", ", $required_weight) . "\n"; 
+$required_weight = [];
+foreach ($weights as $weight) {
+    if ($weight <= $difference) {
+        $required_weight[] = $weight;
+        $difference = $difference - $weight;
     }
+}
+if ($difference != 0) {
+    echo "Niet in balans\n";
+} 
+else {
+    echo implode(", ", $required_weight) . "\n"; 
+}
